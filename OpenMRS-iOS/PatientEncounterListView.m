@@ -41,9 +41,8 @@
     self.title = NSLocalizedString(@"Encounters", "Label encounters");
 }
 
-- (void)viewDidAppear:(BOOL)animated {
+- (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    
     [MRSHelperFunctions updateTableViewForDynamicTypeSize:self.tableView];
 }
 
@@ -63,7 +62,7 @@
         backgroundLabel.text = [NSString stringWithFormat:@"\"%@\"", NSLocalizedString(@"No Encounters", @"Label -no- -encounters-")];
         self.tableView.backgroundView = backgroundLabel;
     } else {
-        self.tableView.backgroundView = nil;
+        self.tableView.backgroundView = [[UIView alloc] init];
     }
     return self.encounters.count;
 }

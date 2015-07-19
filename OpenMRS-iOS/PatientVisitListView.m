@@ -55,13 +55,13 @@
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    if (self.visits.count) {
+    if (self.visits.count == 0) {
         UILabel *backgroundLabel = [[UILabel alloc] init];
         backgroundLabel.textAlignment = NSTextAlignmentCenter;
         backgroundLabel.text = [NSString stringWithFormat:@"\"%@\"", NSLocalizedString(@"No Visits", @"Label -no- -visits-")];
         self.tableView.backgroundView = backgroundLabel;
     } else {
-        self.tableView.backgroundView = nil;
+        self.tableView.backgroundView = [[UIView alloc] init];        self.tableView.backgroundView = nil;
     }
     return self.visits.count;
 }
